@@ -3,58 +3,203 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meet Dodiya | Systems Engineer</title>
+    <title>Meet Dodiya | Systems Engineer Resume</title>
     <style>
-        /* Basic styling to make it readable before we add advanced CSS */
-        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 0 auto; max-width: 800px; padding: 20px; color: #333; }
-        h1, h2, h3 { color: #2c3e50; }
-        .section { margin-bottom: 30px; border-bottom: 1px solid #eee; padding-bottom: 20px; }
-        .project-box { border: 1px solid #3498db; padding: 15px; border-radius: 5px; background: #f9fbfd; }
+        /* Base Styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 40px 20px;
+            background-color: #fcfcfc;
+            color: #1a1a1a;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: auto;
+            background: #ffffff;
+            padding: 50px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        /* Header Styling */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 2px solid #eaeaea;
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            margin: 0 0 10px 0;
+            font-size: 2.5em;
+            color: #111;
+        }
+
+        .contact-info {
+            font-size: 0.95em;
+            color: #444;
+            font-weight: 500;
+        }
+
+        .contact-info a {
+            color: #5b6cce; /* Matching the blue/purple from your screenshot */
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .contact-info a:hover {
+            color: #3a4899;
+            text-decoration: underline;
+        }
+
+        /* Section Styling */
+        h2 {
+            color: #5b6cce;
+            font-size: 1.4em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eaeaea;
+            padding-bottom: 5px;
+        }
+
+        ul {
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        /* Experience Specifics */
+        .job-title {
+            font-weight: bold;
+            margin-bottom: 2px;
+        }
+        
+        .job-dates {
+            color: #666;
+            font-size: 0.9em;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        /* Project Box Styling & Hover Animation */
+        .project-box {
+            background: #f9faff;
+            border-left: 4px solid #5b6cce;
+            padding: 15px 20px;
+            border-radius: 0 4px 4px 0;
+            margin-top: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-box:hover {
+            transform: translateX(8px);
+            box-shadow: 0 4px 10px rgba(91, 108, 206, 0.15);
+        }
+
+        .project-box p {
+            margin: 5px 0 0 0;
+        }
+
+        /* --- CSS ANIMATIONS --- */
+        
+        /* Define the fade-in-up movement */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Apply the animation to all sections */
+        .animated-section {
+            opacity: 0; /* Start invisible */
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        /* Stagger the timing so they load one after another */
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.3s; }
+        .delay-3 { animation-delay: 0.5s; }
+        .delay-4 { animation-delay: 0.7s; }
+        .delay-5 { animation-delay: 0.9s; }
+
     </style>
 </head>
 <body>
 
-    <header class="section">
-        <h1>Meet Dodiya</h1>
-        <h2>Systems Engineer | AWS Certified CloudOps</h2>
-        <p>Surat, Gujarat, India | <a href="YOUR_LINKEDIN_URL">LinkedIn</a> | <a href="YOUR_GITHUB_URL">GitHub</a></p>
-    </header>
+    <div class="container">
+        
+        <header class="animated-section delay-1">
+            <h1>Meet Dodiya</h1>
+            <p class="contact-info">
+                Surat, Gujarat | +91 99043 54050 | dodiyameet97@gmail.com <br>
+                LinkedIn: <a href="https://www.linkedin.com/in/md-cloudy03" target="_blank">linkedin.com/in/md-cloudy03</a> | 
+                GitHub: <a href="https://cloudy-03.github.io" target="_blank">cloudy-03.github.io</a>
+            </p>
+        </header>
 
-    <section class="section">
-        <h2>About Me</h2>
-        <p>Systems Engineer transitioning to cloud infrastructure, combining 6+ years of on-the-ground IT operations with a strong, certified foundation in AWS. Experienced in cross-platform provisioning (Linux, macOS, Windows), local networking, and maintaining high uptime for software development teams.</p>
-    </section>
+        <section class="animated-section delay-2">
+            <h2>Professional Summary</h2>
+            <p>Systems Engineer transitioning to cloud with 6+ years of experience managing local networks, VPNs, and cross-platform environments. Proven record of troubleshooting IT issues and supporting development teams. Recently earned AWS certifications and eager to apply on-premises problem-solving skills to build, secure, and maintain reliable cloud infrastructure.</p>
+        </section>
 
-    <section class="section">
-        <h2>Experience</h2>
-        <h3>System Administrator | Qodors Technologies</h3>
-        <p><em>September 2019 - Present</em></p>
-        <ul>
-            <li>Set up and manage the company’s local network, including configuring routers, switches, and CIDR subnetting.</li>
-            <li>Administer SSL VPNs and configure network routing for secure remote access.</li>
-            <li>Provision workstations, manage VMs (Hyper-V/VMware), and provide daily support for Node.js, PHP, .NET, and Android developers.</li>
-            <li>Troubleshoot critical hardware, software, and network bottlenecks to minimize downtime.</li>
-        </ul>
-    </section>
+        <section class="animated-section delay-3">
+            <h2>Skills</h2>
+            <ul>
+                <li>AWS Cloud Architecture (VPC, EC2, S3, ALB, ASG)</li>
+                <li>Advanced Troubleshooting & Incident Support</li>
+                <li>Network Architecture: Secure Traffic Routing, CIDR, SSL VPN, Security Policies</li>
+                <li>Multi-OS Provisioning (Linux, Windows, macOS)</li>
+                <li>Infrastructure Automation & IaC (Bash, CloudFormation)</li>
+                <li>Version Control (Git/GitHub)</li>
+                <li>System Reliability & Performance Monitoring</li>
+            </ul>
+        </section>
 
-    <section class="section">
-        <h2>Certifications</h2>
-        <ul>
-            <li>AWS Certified SysOps Administrator - Associate</li>
-            <li>AWS Certified Cloud Practitioner</li>
-            <li>CompTIA Network+ ce</li>
-            <li>CompTIA IT Fundamentals (ITF+)</li>
-        </ul>
-    </section>
+        <section class="animated-section delay-4">
+            <h2>Work Experience</h2>
+            <p class="job-title">System Administrator — Qodors Technologies</p>
+            <p class="job-dates">Sep 2019 – Present</p>
+            <ul>
+                <li>Manage daily network operations: routers, switches, IP subnetting.</li>
+                <li>Maintain secure remote access via SSL VPN and traffic routing rules.</li>
+                <li>Support cross-platform environments (Windows, macOS, Linux).</li>
+                <li>Primary contact for resolving bottlenecks, OS issues, and hardware failures.</li>
+            </ul>
+        </section>
 
-    <section class="section">
-        <h2>Projects</h2>
-        <div class="project-box">
-            <h3>Project Chimera: Ultimate Edition</h3>
-            <p><em>Status: In Development</em></p>
-            <p>Details and architecture documentation for this upcoming infrastructure project will be published here upon completion.</p>
-        </div>
-    </section>
+        <section class="animated-section delay-5">
+            <h2>Certifications</h2>
+            <ul>
+                <li>AWS Certified SysOps Administrator – Associate (2026)</li>
+                <li>AWS Certified Cloud Practitioner (2025)</li>
+                <li>AWS Cloud Quest: Cloud Practitioner Badge (2025)</li>
+                <li>CompTIA Network+ (2019)</li>
+                <li>CompTIA IT Fundamentals (ITF+) (2019)</li>
+                <li>Ethical Hacking Expert – R11 (2019)</li>
+                <li>Star Cyber Secure User – R11 (2019)</li>
+            </ul>
+        </section>
+
+        <section class="animated-section delay-5">
+            <h2>Projects</h2>
+            <div class="project-box">
+                <p class="job-title">Project Chimera: Ultimate Edition</p>
+                <p>Architected a highly available AWS environment using EC2, S3, and custom VPCs to support a scalable backend, emphasizing system reliability and secure traffic routing.</p>
+            </div>
+        </section>
+
+    </div>
 
 </body>
 </html>
