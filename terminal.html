@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meet Dodiya | Diagnostic Terminal</title>
+    <style>
+        body { margin: 0; padding: 40px 20px; font-family: 'Courier New', Courier, monospace; background-color: #0d1117; color: #3fb950; display: flex; flex-direction: column; align-items: center; }
+        .container { max-width: 800px; width: 100%; }
+        .back-btn { display: inline-block; margin-bottom: 20px; text-decoration: none; color: #8b949e; border: 1px solid #30363d; padding: 5px 10px; border-radius: 3px; font-family: 'Segoe UI', sans-serif; }
+        .back-btn:hover { color: #fff; background: #30363d; }
+        
+        .terminal-window { background: #010409; border: 1px solid #30363d; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.8); overflow: hidden; }
+        .terminal-header { background: #161b22; padding: 10px; border-bottom: 1px solid #30363d; color: #8b949e; text-align: center; font-family: 'Segoe UI', sans-serif; font-size: 0.9em; display: flex; justify-content: space-between; }
+        .terminal-body { padding: 20px; min-height: 400px; }
+        
+        .command-prompt { color: #58a6ff; font-weight: bold; margin-right: 10px; }
+        .output { color: #c9d1d9; margin-bottom: 20px; line-height: 1.5; white-space: pre-wrap; }
+        
+        /* Interactive Buttons mimicking commands */
+        .cmd-btn { background: transparent; border: 1px dashed #3fb950; color: #3fb950; padding: 5px 15px; font-family: inherit; font-size: 1em; cursor: pointer; margin-right: 10px; margin-bottom: 20px; transition: all 0.2s; }
+        .cmd-btn:hover { background: rgba(63, 185, 80, 0.1); border-style: solid; }
+
+        /* Hide the outputs initially */
+        .output-block { display: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-btn">Exit Terminal</a>
+        
+        <div class="terminal-window">
+            <div class="terminal-header">
+                <span>mdodiya@sysadmin-to-cloud: ~</span>
+                <span>bash - 80x24</span>
+            </div>
+            <div class="terminal-body">
+                <div><span class="command-prompt">root@dodiya:~#</span> echo "Welcome to the Diagnostic Terminal."</div>
+                <div><span class="command-prompt">root@dodiya:~#</span> echo "Click a command below to execute."</div>
+                <br>
+                
+                <button class="cmd-btn" onclick="showOutput('network')">./run_network_diag.sh</button>
+                <button class="cmd-btn" onclick="showOutput('vpn')">systemctl status vpn</button>
+                <button class="cmd-btn" onclick="showOutput('cloud')">cat aws_goals.txt</button>
+
+                <div id="network" class="output-block output">
+<span class="command-prompt">Executing Network Diagnostics...</span>
+[OK] TCP/IP Routing validated.
+[OK] CIDR Subnetting rules applied.
+[INFO] 6+ years experience resolving complex network bottlenecks.
+[INFO] Hardware: Switches and Routers operational.
+                </div>
+
+                <div id="vpn" class="output-block output">
+<span class="command-prompt">Checking SSL VPN Status...</span>
+● vpn.service - Secure Remote Access
+   Loaded: loaded (/lib/systemd/system/vpn.service)
+   Active: active (running)
+   Docs: Maintained secure access for cross-platform dev teams (Node.js, PHP, .NET, Android).
+   Log: Zero major security breaches during tenure.
+                </div>
+
+                <div id="cloud" class="output-block output">
+<span class="command-prompt">Reading file: aws_goals.txt...</span>
+GOAL: Transition 6 years of on-premises troubleshooting skills to Cloud Operations.
+STATUS: AWS Certified SysOps Administrator & Cloud Practitioner.
+ACTION: Seeking Junior SRE or Cloud Support roles to build highly available systems.
+                </div>
+                
+                <div id="cursor" style="display:none;"><span class="command-prompt">root@dodiya:~#</span> <span style="animation: blink 1s step-end infinite;">█</span></div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showOutput(id) {
+            // Hide all outputs first
+            document.querySelectorAll('.output-block').forEach(el => el.style.display = 'none');
+            // Show the selected output
+            document.getElementById(id).style.display = 'block';
+            // Show the blinking cursor below it
+            document.getElementById('cursor').style.display = 'block';
+        }
+    </script>
+    <style>@keyframes blink { 50% { opacity: 0; } }</style>
+</body>
+</html>
