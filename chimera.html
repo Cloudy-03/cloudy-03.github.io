@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meet Dodiya | Project Chimera</title>
+    <style>
+        body { margin: 0; padding: 40px 20px; font-family: 'Segoe UI', sans-serif; background-color: #0d1117; color: #c9d1d9; display: flex; flex-direction: column; align-items: center; background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px); background-size: 30px 30px;}
+        .container { max-width: 900px; width: 100%; }
+        .back-btn { display: inline-block; margin-bottom: 30px; text-decoration: none; color: #58a6ff; font-weight: bold; font-size: 0.9em; padding: 8px 15px; border: 1px solid #30363d; background: #161b22; border-radius: 5px; transition: all 0.2s; }
+        .back-btn:hover { border-color: #58a6ff; transform: translateX(-3px); }
+        header { margin-bottom: 40px; border-bottom: 1px solid #30363d; padding-bottom: 20px; }
+        h1 { color: #ffffff; margin: 0 0 10px 0; }
+        .diagram-container { background-color: #161b22; border: 1px solid #30363d; border-radius: 12px; padding: 40px; box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
+        @keyframes connectionPulse { 0% { stroke-opacity: 0.1; stroke-width: 1.5px; filter: drop-shadow(0 0 0px #58a6ff); } 50% { stroke-opacity: 1; stroke-width: 3px; filter: drop-shadow(0 0 8px #58a6ff); } 100% { stroke-opacity: 0.1; stroke-width: 1.5px; filter: drop-shadow(0 0 0px #58a6ff); } }
+        .animated-line { stroke: #58a6ff; stroke-linecap: round; animation: connectionPulse 3s infinite ease-in-out; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-btn">← Back to Command Center</a>
+        <header>
+            <h1>Project Chimera: Ultimate Edition</h1>
+            <p>Highly available AWS architecture emphasizing system reliability and secure traffic routing.</p>
+        </header>
+        <div class="diagram-container">
+            <svg viewBox="0 0 800 400" width="100%" xmlns="http://www.w3.org/2000/svg">
+                <rect x="50" y="50" width="700" height="300" rx="10" fill="none" stroke="#30363d" stroke-width="2" stroke-dasharray="5,5"/>
+                <text x="70" y="80" fill="#8b949e" font-weight="bold">VPC: 10.0.0.0/16</text>
+                <rect x="100" y="150" width="120" height="60" rx="5" fill="#1c2128" stroke="#8b949e" stroke-width="1.5"/>
+                <text x="115" y="185" fill="#c9d1d9">Internet Gateway</text>
+                <rect x="300" y="100" width="140" height="60" rx="5" fill="#1c2128" stroke="#58a6ff" stroke-width="1.5"/>
+                <text x="315" y="135" fill="#58a6ff">Public Subnet (ALB)</text>
+                <rect x="300" y="240" width="140" height="60" rx="5" fill="#1c2128" stroke="#3fb950" stroke-width="1.5"/>
+                <text x="315" y="275" fill="#3fb950">Private Subnet (EC2)</text>
+                <rect x="550" y="170" width="120" height="60" rx="5" fill="#1c2128" stroke="#d29922" stroke-width="1.5"/>
+                <text x="580" y="205" fill="#d29922">S3 Bucket</text>
+                <path class="animated-line" style="animation-delay: 0s;" d="M 220 180 L 260 180 L 260 130 L 300 130" fill="none"/>
+                <path class="animated-line" style="animation-delay: 0.5s;" d="M 370 160 L 370 240" fill="none"/>
+                <path class="animated-line" style="animation-delay: 1s;" d="M 440 270 L 490 270 L 490 200 L 550 200" fill="none"/>
+            </svg>
+        </div>
+    </div>
+</body>
+</html>
