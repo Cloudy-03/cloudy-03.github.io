@@ -3,201 +3,159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meet Dodiya | Systems Engineer Resume</title>
+    <title>Meet Dodiya | Cloud Systems Engineer</title>
     <style>
-        /* Base Styling */
+        /* Base Dark Mode Tech Styling */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
             margin: 0;
-            padding: 40px 20px;
-            background-color: #fcfcfc;
-            color: #1a1a1a;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0d1117; /* GitHub Dark Mode Base */
+            color: #c9d1d9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            /* Subtle grid background */
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 30px 30px;
         }
 
-        .container {
-            max-width: 850px;
-            margin: auto;
-            background: #ffffff;
-            padding: 50px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
-
-        /* Header Styling */
-        header {
+        /* Header Section */
+        .header {
             text-align: center;
-            margin-bottom: 40px;
-            border-bottom: 2px solid #eaeaea;
-            padding-bottom: 20px;
+            margin-top: 80px;
+            margin-bottom: 50px;
+            animation: fadeInDown 0.8s ease forwards;
         }
 
-        h1 {
-            margin: 0 0 10px 0;
-            font-size: 2.5em;
-            color: #111;
+        .header h1 {
+            color: #ffffff;
+            font-size: 3em;
+            margin: 0;
+            letter-spacing: 1px;
         }
 
-        .contact-info {
-            font-size: 0.95em;
-            color: #444;
+        .header p {
+            color: #58a6ff; /* Tech Blue */
+            font-size: 1.2em;
+            margin-top: 10px;
             font-weight: 500;
         }
 
-        .contact-info a {
-            color: #5b6cce; /* Matching the blue/purple from your screenshot */
+        /* The Grid for the Tiles */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            max-width: 900px;
+            width: 90%;
+            padding-bottom: 50px;
+        }
+
+        /* Individual Tile Styling */
+        .tile {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            padding: 35px 25px;
             text-decoration: none;
-            transition: color 0.2s ease;
-        }
-
-        .contact-info a:hover {
-            color: #3a4899;
-            text-decoration: underline;
-        }
-
-        /* Section Styling */
-        h2 {
-            color: #5b6cce;
-            font-size: 1.4em;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            border-bottom: 1px solid #eaeaea;
-            padding-bottom: 5px;
-        }
-
-        ul {
-            padding-left: 20px;
-            margin-bottom: 20px;
-        }
-
-        li {
-            margin-bottom: 8px;
-        }
-
-        /* Experience Specifics */
-        .job-title {
-            font-weight: bold;
-            margin-bottom: 2px;
-        }
-        
-        .job-dates {
-            color: #666;
-            font-size: 0.9em;
-            margin-top: 0;
-            margin-bottom: 10px;
-        }
-
-        /* Project Box Styling & Hover Animation */
-        .project-box {
-            background: #f9faff;
-            border-left: 4px solid #5b6cce;
-            padding: 15px 20px;
-            border-radius: 0 4px 4px 0;
-            margin-top: 10px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .project-box:hover {
-            transform: translateX(8px);
-            box-shadow: 0 4px 10px rgba(91, 108, 206, 0.15);
-        }
-
-        .project-box p {
-            margin: 5px 0 0 0;
-        }
-
-        /* --- CSS ANIMATIONS --- */
-        
-        /* Define the fade-in-up movement */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Apply the animation to all sections */
-        .animated-section {
-            opacity: 0; /* Start invisible */
+            color: #c9d1d9;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            opacity: 0;
             animation: fadeInUp 0.8s ease forwards;
         }
 
-        /* Stagger the timing so they load one after another */
-        .delay-1 { animation-delay: 0.1s; }
-        .delay-2 { animation-delay: 0.3s; }
-        .delay-3 { animation-delay: 0.5s; }
-        .delay-4 { animation-delay: 0.7s; }
-        .delay-5 { animation-delay: 0.9s; }
+        /* Staggered load times for the tiles */
+        .tile:nth-child(1) { animation-delay: 0.2s; }
+        .tile:nth-child(2) { animation-delay: 0.4s; }
+        .tile:nth-child(3) { animation-delay: 0.6s; }
+        .tile:nth-child(4) { animation-delay: 0.8s; }
 
+        /* The Hover Hook (The magic part) */
+        .tile:hover {
+            transform: translateY(-8px);
+            border-color: #58a6ff;
+            box-shadow: 0 10px 25px rgba(88, 166, 255, 0.15);
+            background-color: #1c2128;
+        }
+
+        /* Tile Content Styling */
+        .tile-icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        .tile h2 {
+            color: #ffffff;
+            margin: 0 0 10px 0;
+            font-size: 1.4em;
+        }
+
+        .tile p {
+            margin: 0;
+            font-size: 0.95em;
+            color: #8b949e;
+            line-height: 1.5;
+        }
+
+        /* --- Animations --- */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .dashboard-grid { grid-template-columns: 1fr; }
+            .header h1 { font-size: 2.2em; }
+        }
     </style>
 </head>
 <body>
 
-    <div class="container">
+    <div class="header">
+        <h1>Meet Dodiya</h1>
+        <p>Systems Engineer & AWS CloudOps</p>
+    </div>
+
+    <div class="dashboard-grid">
         
-        <header class="animated-section delay-1">
-            <h1>Meet Dodiya</h1>
-            <p class="contact-info">
-                Surat, Gujarat | +91 99043 54050 | dodiyameet97@gmail.com <br>
-                LinkedIn: <a href="https://www.linkedin.com/in/md-cloudy03" target="_blank">linkedin.com/in/md-cloudy03</a> | 
-                GitHub: <a href="https://cloudy-03.github.io" target="_blank">cloudy-03.github.io</a>
-            </p>
-        </header>
+        <a href="#resume" class="tile">
+            <div class="tile-icon">📄</div>
+            <h2>Executive Resume</h2>
+            <p>6+ years of IT operations experience, AWS certifications, and core competencies in a clean, professional format.</p>
+        </a>
 
-        <section class="animated-section delay-2">
-            <h2>Professional Summary</h2>
-            <p>Systems Engineer transitioning to cloud with 6+ years of experience managing local networks, VPNs, and cross-platform environments. Proven record of troubleshooting IT issues and supporting development teams. Recently earned AWS certifications and eager to apply on-premises problem-solving skills to build, secure, and maintain reliable cloud infrastructure.</p>
-        </section>
+        <a href="#chimera" class="tile">
+            <div class="tile-icon">☁️</div>
+            <h2>Cloud Architecture</h2>
+            <p>Deep-dive into Project Chimera. Interactive VPC layouts, EC2/S3 routing, and highly available infrastructure diagrams.</p>
+        </a>
 
-        <section class="animated-section delay-3">
-            <h2>Skills</h2>
-            <ul>
-                <li>AWS Cloud Architecture (VPC, EC2, S3, ALB, ASG)</li>
-                <li>Advanced Troubleshooting & Incident Support</li>
-                <li>Network Architecture: Secure Traffic Routing, CIDR, SSL VPN, Security Policies</li>
-                <li>Multi-OS Provisioning (Linux, Windows, macOS)</li>
-                <li>Infrastructure Automation & IaC (Bash, CloudFormation)</li>
-                <li>Version Control (Git/GitHub)</li>
-                <li>System Reliability & Performance Monitoring</li>
-            </ul>
-        </section>
+        <a href="#operations" class="tile">
+            <div class="tile-icon">🖧</div>
+            <h2>Operations Vault</h2>
+            <p>From on-prem to the cloud. A visual timeline of hands-on networking, server administration, and SSL VPN management.</p>
+        </a>
 
-        <section class="animated-section delay-4">
-            <h2>Work Experience</h2>
-            <p class="job-title">System Administrator — Qodors Technologies</p>
-            <p class="job-dates">Sep 2019 – Present</p>
-            <ul>
-                <li>Manage daily network operations: routers, switches, IP subnetting.</li>
-                <li>Maintain secure remote access via SSL VPN and traffic routing rules.</li>
-                <li>Support cross-platform environments (Windows, macOS, Linux).</li>
-                <li>Primary contact for resolving bottlenecks, OS issues, and hardware failures.</li>
-            </ul>
-        </section>
-
-        <section class="animated-section delay-5">
-            <h2>Certifications</h2>
-            <ul>
-                <li>AWS Certified SysOps Administrator – Associate (2026)</li>
-                <li>AWS Certified Cloud Practitioner (2025)</li>
-                <li>AWS Cloud Quest: Cloud Practitioner Badge (2025)</li>
-                <li>CompTIA Network+ (2019)</li>
-                <li>CompTIA IT Fundamentals (ITF+) (2019)</li>
-                <li>Ethical Hacking Expert – R11 (2019)</li>
-                <li>Star Cyber Secure User – R11 (2019)</li>
-            </ul>
-        </section>
-
-        <section class="animated-section delay-5">
-            <h2>Projects</h2>
-            <div class="project-box">
-                <p class="job-title">Project Chimera: Ultimate Edition</p>
-                <p>Architected a highly available AWS environment using EC2, S3, and custom VPCs to support a scalable backend, emphasizing system reliability and secure traffic routing.</p>
-            </div>
-        </section>
+        <a href="#contact" class="tile">
+            <div class="tile-icon">👨‍💻</div>
+            <h2>Terminal Access</h2>
+            <p>Connect with me. Direct links to my LinkedIn, email, and secure communication channels.</p>
+        </a>
 
     </div>
 
