@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meet Dodiya | Infrastructure Evolution</title>
+    <style>
+        body { margin: 0; padding: 40px 20px; font-family: 'Segoe UI', sans-serif; background-color: #0d1117; color: #c9d1d9; display: flex; flex-direction: column; align-items: center; }
+        .container { max-width: 1000px; width: 100%; }
+        .back-btn { display: inline-block; margin-bottom: 30px; text-decoration: none; color: #58a6ff; font-weight: bold; padding: 8px 15px; border: 1px solid #30363d; background: #161b22; border-radius: 5px; }
+        .back-btn:hover { border-color: #58a6ff; }
+        header { text-align: center; margin-bottom: 40px; }
+        h1 { color: #ffffff; }
+        
+        .comparison-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        @media (max-width: 768px) { .comparison-grid { grid-template-columns: 1fr; } }
+        
+        .card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 30px; position: relative; overflow: hidden; }
+        .card h2 { margin-top: 0; font-size: 1.5em; border-bottom: 1px solid #30363d; padding-bottom: 15px; }
+        
+        /* Specific styling for the two columns */
+        .on-prem h2 { color: #8b949e; }
+        .cloud h2 { color: #58a6ff; }
+        
+        ul { padding-left: 20px; color: #c9d1d9; line-height: 1.8; }
+        
+        /* Faux code block styling */
+        .code-block { background: #0d1117; border: 1px solid #30363d; padding: 15px; border-radius: 5px; font-family: monospace; color: #3fb950; margin-top: 15px; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-btn">← Back to Command Center</a>
+        <header>
+            <h1>The Evolution of Infrastructure</h1>
+            <p>My transition from managing physical hardware to architecting scalable cloud solutions.</p>
+        </header>
+
+        <div class="comparison-grid">
+            <div class="card on-prem">
+                <h2>The Past: Manual On-Premises</h2>
+                <p><strong>Scenario: Provisioning a New Web Server</strong></p>
+                <ul>
+                    <li>Physically rack and cable the server hardware.</li>
+                    <li>Manually install the Linux OS via USB/Network Boot.</li>
+                    <li>Log in to configure static IPs, Subnets, and Gateways.</li>
+                    <li>Manually configure firewall rules (iptables/UFW).</li>
+                    <li>Estimated Time: <strong>2 - 4 Hours</strong></li>
+                </ul>
+                <div class="code-block">
+                    $ sudo apt-get update<br>
+                    $ sudo nano /etc/network/interfaces<br>
+                    # Manually editing IP tables...
+                </div>
+            </div>
+
+            <div class="card cloud">
+                <h2>The Present: AWS CloudOps</h2>
+                <p><strong>Scenario: Provisioning an Auto-Scaling Fleet</strong></p>
+                <ul>
+                    <li>Define the architecture in code (IaC).</li>
+                    <li>Deploy an Auto Scaling Group across multiple AZs.</li>
+                    <li>Attach an Application Load Balancer to manage traffic.</li>
+                    <li>Apply predefined Security Groups instantly.</li>
+                    <li>Estimated Time: <strong>3 Minutes</strong></li>
+                </ul>
+                <div class="code-block">
+                    Resources:<br>
+                    &nbsp;&nbsp;WebServerGroup:<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;Type: AWS::AutoScaling::AutoScalingGroup<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;Properties:<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MinSize: '2'<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MaxSize: '4'
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
